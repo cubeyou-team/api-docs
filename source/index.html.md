@@ -23,34 +23,6 @@ Welcome to the CubeYou API! You can use our API to access our endpoints, which c
 
 ## Authentication
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
 CubeYou uses API keys to allow access to the API. You can ask a new CubeYou API key at our website support page.
 
 CubeYou expects for the API key to be included in all API requests to the server in a header that looks like the following:
@@ -98,7 +70,7 @@ This group of endpoints will handle anything related to targets demographics
 Base URL:
 `https://api.cubeyou.com/v1/:targetId/demographics`
 
-## Get Gender data
+## Get *gender* data
 
 
 ```javascript
@@ -151,108 +123,146 @@ This endpoint retrieves data for `Male` and `Female`.
 `GET https://api.cubeyou.com/v1/:targetId/demographics/gender`
 
 
-## Get a Specific Kitten
+## Get *age* data
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+axiosClient.get('/:targetId/demographics/age').then(response => {
+  console.log(response.data);
+})
 ```
 
-> The above command returns JSON structured like this:
+> The above command, using `5a7847fef35cdca8a9c3e2a3` as targetId, returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+[{
+	"label": "18-24",
+	"category": "Age",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.15306229191758672,
+			"affinity": 1.0133412901081114,
+			"average": 0.15104712835816334,
+			"penetration": 0.5051,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}, {
+	"label": "25-34",
+	"category": "Age",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.20571491891998397,
+			"affinity": 1.0201920728472431,
+			"average": 0.20164332226759654,
+			"penetration": 0.5085,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}, {
+	"label": "35-44",
+	"category": "Age",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.20556984562468633,
+			"affinity": 1.0150633381251923,
+			"average": 0.20251922998654542,
+			"penetration": 0.5059,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}, {
+	"label": "45-54",
+	"category": "Age",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.21669869747591908,
+			"affinity": 0.9898555062720561,
+			"average": 0.2189195252265038,
+			"penetration": 0.4934,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}, {
+	"label": "55-69",
+	"category": "Age",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.21895424606182376,
+			"affinity": 0.9693782982211006,
+			"average": 0.22587079416119094,
+			"penetration": 0.4831,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}]
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves *age* data for the specified target.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.cubeyou.com/v1/:targetId/demographics/age`
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+## Get *city* data
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+axiosClient.get('/:targetId/demographics/city?limit=2').then(response => {
+  console.log(response.data);
+})
 ```
-
-> The above command returns JSON structured like this:
+> In this example has been used `limit=2` in order to limit the result size <br>
+> The above command, using `5a7847fef35cdca8a9c3e2a3` as targetId, returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+[{
+	"label": "New York-Northern New Jersey-Long Island, NY-NJ-PA",
+	"category": "Metro Area",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.059326771016627144,
+			"affinity": 1.010113094317938,
+			"average": 0.058732800663955906,
+			"penetration": 0.5034,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}, {
+	"label": "Los Angeles-Long Beach-Santa Ana, CA",
+	"category": "Metro Area",
+	"targets": {
+		"5a7847fef35cdca8a9c3e2a3": {
+			"targetId": "5a7847fef35cdca8a9c3e2a3",
+			"reach": 0.04605819679170036,
+			"affinity": 1.1425406257149961,
+			"average": 0.04031208672591172,
+			"penetration": 0.5695,
+			"show": "full",
+			"interClusterAffinity": 1
+		}
+	}
+}]
 ```
-
-This endpoint deletes a specific kitten.
+ 
+This endpoint retrieves *city* data for the specified target.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+`GET https://api.cubeyou.com/v1/:targetId/demographics/city`
 
