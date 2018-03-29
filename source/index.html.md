@@ -1,5 +1,5 @@
 ---
-title: CubeYou API Docs
+title: Cubeyou API Docs
 
 language_tabs: # must be one of https://git.io/vQNgJ
  [//]: # - shell
@@ -19,13 +19,13 @@ search: true
 
 # Introduction
 
-Welcome to the CubeYou API! You can use our API to access our endpoints, which can get the same info available on out website [www.cubeyou.com](www.cubeyou.com).
+Welcome to the Cubeyou API! You can use our API to access our endpoints, which can get the same info available on Cubeyou!.
 
 ## Authentication
 
-CubeYou uses API keys to allow access to the API. You can ask a new CubeYou API key at our website support page.
+Cubeyou uses API keys to allow access to the API. You can ask a new Cubeyou API key at our website support page.
 
-CubeYou expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Cubeyou expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `cy-auth-token: your-token`
 
@@ -53,7 +53,7 @@ Ie: <code>skip=-7</code> will return last 7 elements
 
 ```javascript
 const axiosClient = axios.create({
-  baseURL: 'https://api.cubeyou.com/v1/',
+  baseURL: 'https://api.Cubeyou.com/v1/',
   timeout: 30000,
   headers: {'cy-auth-token': 'your-token'}
 });
@@ -63,12 +63,41 @@ In our Javascript examples we will use `axios` as http library. It's only for de
 
 In all our example we will consider that this type of initialization has been done. It avoids you to specify the `base path` and the `api Key` at each request.
 
+# List of Targets
+
+In order to get Cubeyou data, you must define and provide a target. Targets are defined through Cubeyou web interface, and can be retrieved through the *targets endpoint*
+
 
 # Demographics
 This group of endpoints will handle anything related to targets demographics
 
+## Get *targets* data
+
 Base URL:
-`https://api.cubeyou.com/v1/:targetId/demographics`
+`https://api.Cubeyou.com/v1/:targetId/demographics`
+
+```javascript
+axiosClient.get('/targets').then(response => {
+  console.log(response.data);
+})
+```
+> The above command, returns JSON structured like this:
+
+```json
+[
+	{
+        "id": "5aa657248606b08785732346",
+        "name": "TARGET 2"
+    },
+    {
+        "id": "5aa657248606b08785732347",
+        "name": "TARGET 2"
+    }
+]
+```
+
+The id field is the field that must be extracted in order to make calls to results endpoint such as demographics, psychographics, ...
+
 
 ## Get *gender* data
 
@@ -120,7 +149,7 @@ This endpoint retrieves data for `Male` and `Female`.
 
 ### HTTP Request
 
-`GET https://api.cubeyou.com/v1/:targetId/demographics/gender`
+`GET https://api.Cubeyou.com/v1/:targetId/demographics/gender`
 
 
 ## Get *age* data
@@ -212,7 +241,7 @@ This endpoint retrieves *age* data for the specified target.
 
 ### HTTP Request
 
-`GET https://api.cubeyou.com/v1/:targetId/demographics/age`
+`GET https://api.Cubeyou.com/v1/:targetId/demographics/age`
 
 
 
@@ -264,5 +293,5 @@ This endpoint retrieves *city* data for the specified target.
 
 ### HTTP Request
 
-`GET https://api.cubeyou.com/v1/:targetId/demographics/city`
+`GET https://api.Cubeyou.com/v1/:targetId/demographics/city`
 
