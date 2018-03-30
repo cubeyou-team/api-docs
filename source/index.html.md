@@ -67,10 +67,6 @@ In all our example we will consider that this type of initialization has been do
 
 In order to get Cubeyou data, you must define and provide a target. Targets are defined through Cubeyou web interface, and can be retrieved through the *targets endpoint*
 
-
-# Demographics
-This group of endpoints will handle anything related to targets demographics
-
 ## Get *targets* data
 
 Base URL:
@@ -98,6 +94,8 @@ axiosClient.get('/targets').then(response => {
 
 The id field is the field that must be extracted in order to make calls to results endpoint such as demographics, psychographics, ...
 
+# Demographics
+This group of endpoints will handle anything related to targets demographics
 
 ## Get *gender* data
 
