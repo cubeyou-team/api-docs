@@ -53,7 +53,7 @@ Ie: <code>skip=-7</code> will return last 7 elements
 
 ```javascript
 const axiosClient = axios.create({
-  baseURL: 'https://api.Cubeyou.com/v1/',
+  baseURL: 'https://api.cubeyou.com/v1/',
   timeout: 30000,
   headers: {'cy-auth-token': 'your-token'}
 });
@@ -70,7 +70,7 @@ In order to get Cubeyou data, you must define and provide a target. Targets are 
 ## Get *targets* data
 
 Base URL:
-`https://api.Cubeyou.com/v1/:targetId/demographics`
+`https://api.cubeyou.com/v1/:targetId/demographics`
 
 ```javascript
 axiosClient.get('/targets').then(response => {
@@ -147,7 +147,7 @@ This endpoint retrieves data for `Male` and `Female`.
 
 ### HTTP Request
 
-`GET https://api.Cubeyou.com/v1/:targetId/demographics/gender`
+`GET https://api.cubeyou.com/v1/:targetId/demographics/gender`
 
 
 ## Get *age* data
@@ -239,7 +239,7 @@ This endpoint retrieves *age* data for the specified target.
 
 ### HTTP Request
 
-`GET https://api.Cubeyou.com/v1/:targetId/demographics/age`
+`GET https://api.cubeyou.com/v1/:targetId/demographics/age`
 
 
 
@@ -291,5 +291,5 @@ This endpoint retrieves *city* data for the specified target.
 
 ### HTTP Request
 
-`GET https://api.Cubeyou.com/v1/:targetId/demographics/city`
+`GET https://api.cubeyou.com/v1/:targetId/demographics/city`
 
